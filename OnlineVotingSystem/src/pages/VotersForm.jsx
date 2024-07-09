@@ -518,6 +518,4 @@ const VotersForm = () => {
          </form> 
     </div>)
 }
-
-
 export default VotersForm;
