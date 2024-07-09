@@ -110,7 +110,7 @@ const CandidatesForm = () => {
         const submitCandidate = (err) => {
             err.preventDefault();
             axios
-                .post("http://localhost:8080/api/candidate/register", {
+                .post("https://online-voting-system-backend-ds6j.onrender.com/api/candidate/register", {
                     candidateId: candidate.candidateId,
                     partyName: candidate.partyName,
                     name: candidate.name,
