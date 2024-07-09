@@ -27,7 +27,7 @@ const Login = ({ props }) => {
         
         if (props == "User") {
             axios
-                .post("http://localhost:8080/api/v1/voters/login", {
+                .post("https://online-voting-system-backend-ds6j.onrender.com/api/v1/voters/login", {
                     password: user.password,
                     email: user.email
                 })
@@ -46,7 +46,7 @@ const Login = ({ props }) => {
         }
         else if (props == 'Admin') {
             axios
-                .post("http://localhost:8080/api/admin/login", {
+                .post("https://online-voting-system-backend-ds6j.onrender.com/api/admin/login", {
                     password: user.password,
                     email: user.email,
                 })
