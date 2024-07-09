@@ -28,7 +28,7 @@ const navigate = useNavigate();
   const submitHandler=(e)=>{
     e.preventDefault();
 
-    axios.post("http://localhost:8080/api/admin/register",{
+    axios.post("https://online-voting-system-backend-ds6j.onrender.com/api/admin/register",{
       name:admin.name,
       email:admin.email,
       password:admin.password
