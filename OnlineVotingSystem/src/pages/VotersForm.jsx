@@ -270,7 +270,7 @@ const VotersForm = () => {
         e.preventDefault();
     //   console.log(voterDetails);
        axios
-       .post("http://localhost:8080/api/v1/voters/register",{
+       .post("https://online-voting-system-backend-ds6j.onrender.com/api/v1/voters/register",{
         voter_id:voterDetails.voter_id,
         login_id:voterDetails.login_id,
         aadharNumber:voterDetails.aadharNumber,
