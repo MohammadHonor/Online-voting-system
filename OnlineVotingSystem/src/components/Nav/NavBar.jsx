@@ -1,11 +1,10 @@
-
+import { NavLink } from 'react-router-dom';
 import React from 'react';
 import { IoReorderThreeOutline } from "react-icons/io5";
 const NavBar = () => {
 
 
-  return (<>
-    <div className=" 
+  return (<div className=" 
     z-50 fixed top-0
      flex h-20 
      bg-blue-950
@@ -14,23 +13,21 @@ const NavBar = () => {
      pl-10 pr-10
      border-b-2 border-green-500
     ">
-      <IoReorderThreeOutline
-        className='text-4xl 
-      text-white cursor-pointer'
-      />
-      <div className={`flex text-white gap-40 `}>
-        {/* <NavLink
-          to="/About"
-        >About</NavLink>
-        <NavLink
-          to="/Contact"
-        >Contact</NavLink>
-        <NavLink
-          to="/Login"
-        >Login</NavLink> */}
-      </div>
+      <ul className=' flex gap-16 w-screen h-20 justify-end items-center pr-40 text-white '>
+            <li>
+                <NavLink to="/ProfileInfo">Personal Info</NavLink>
+            </li>
+            <li>
+                <NavLink to="/Election">Elections</NavLink>
+            </li>
+            <li>
+                <NavLink to='/Contact'>Contact</NavLink>
+            </li>
+            <li>
+                <NavLink to="/votingPannel">Vote</NavLink>
+            </li>
+        </ul>
     </div>
-  </>
   )
 }
 

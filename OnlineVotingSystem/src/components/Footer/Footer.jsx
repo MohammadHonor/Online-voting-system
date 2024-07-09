@@ -18,7 +18,8 @@ const Footer = ({color}) => {
    border-white
     grid-cols-3 
     p-20 
-    ml-80'>
+    pl-32
+    '>
             <div className=' border-blue-900 
             flex flex-col gap-4  border-r-2'>
                 <span className='flex flex-col text-white'>
@@ -72,7 +73,8 @@ const Footer = ({color}) => {
             <div className='flex flex-col  gap-2'>
                 <b className={`${color} text-white`}>Quick Feedback:</b>
                 <input type="text" className='h8- outline-none'></input>
-                <input type="textarea" className='h-40 outline-none'></input>
+                {/* <input type="textarea" className='h-40 outline-none'></input> */}
+                <textarea name="" id="" cols="30" rows="10"></textarea>
                 <div className='flex  justify-end'>
                 <button className=' bg-blue-500 text-white  text-2xl w-28'>
                 <IoIosSend className='text-white text-4xl inline-block '/>Send</button>

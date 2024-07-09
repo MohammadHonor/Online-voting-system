@@ -8,7 +8,7 @@ import { SiLinuxcontainers } from "react-icons/si";
 
 export const Step = () => {
     return (
-        <div className='ml-80 bg-white w-screen h-screen font-bold flex flex-col gap-8 p-40'>
+        <div className='bg-white w-screen h-screen font-bold flex flex-col gap-8 p-40'>
 
             <div className=' w-200 text-6xl border-b-4 border-blue-500 pb-4'>Follow these easy steps</div>
             <div className='flex gap-8 items-center'>

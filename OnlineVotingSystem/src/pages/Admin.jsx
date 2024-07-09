@@ -1,16 +1,23 @@
-
+import { NavLink } from "react-router-dom";
+import axios from 'axios' ;
 
 
 const Admin=()=>{
-    return(<div className="text-white  bg-cyan-800  w-screen h-screen ml-80">
-            <h1 className="relative top-20 text-4xl text-center mr-96">Welcome Admin</h1>
-        <div action="" className="grid grid-cols-2  justify-items-start p-20 relative top-20 gap-40 "> 
-         
-        <button type="button" className="bg-blue-800 rounded  p-2 pl-4 pr-4">Create Voter</button>
-        <button type="button" className="bg-blue-800 rounded  p-2">Create Candidate</button>
-        <button type="button" className="bg-blue-800 rounded  p-2">Edit Voters/view</button>
-        <button type="button" className="bg-blue-800 rounded  p-2">Edit Canditate/view</button>
+   
+    const voters=()=>{
+      axios('http://localhost:8080/api/voters_list').then((res)=>{
 
+        console.log(res)
+    })
+}
+    return(<div className="text-white bg-lime-800 w-screen h-screen p-10 pl-32">
+            <h1 className="relative top-20 text-4xl text-center ">Welcome To Admin Pannel</h1>
+        <div action="" className="flex flex-col gap-4 relative top-40 "> 
+         <NavLink to="/voters/register" className="bg-blue-800 rounded  p-3 pl-4 ">Create Voters</NavLink>
+         <NavLink to="/candidates" className="bg-blue-800 rounded  p-3 pl-4">Create Candidates</NavLink>
+        <NavLink to="/VotersView" className="bg-blue-800 rounded  p-3" onClick={voters}>Edit Voters/view</NavLink>
+        <NavLink to="/candidatesView" className="bg-blue-800 rounded  p-3  pl-4">Edit Canditate/view</NavLink>
+        <NavLink to="/election_result" className="bg-blue-800 rounded  p-3 pl-4">Election Result</NavLink>
         </div>
         </div>
     )

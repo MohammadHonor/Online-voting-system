@@ -79,8 +79,6 @@ inexpensive,faster results and others.<br/>
       <div className={`flex justify-center  relative  pt-4 ${border} border-t-4 relative w-96 rotate-90`}>
         <span className={`${text} text-6xl font-bold absolute rotate-180 `}>{item}</span>
         </div>
-
-        
       <div className={`
       flex  
       flex-col
