@@ -30,12 +30,12 @@ const Footer = ({color}) => {
                 <span className='flex flex-col text-white'>
                     <b className={`${color}`}>Helpline</b>
                     <b>+918115716390</b>
-                    <b>+919084606156</b>
+                    <b>+91----------</b>
                 </span>
                 <span className='flex flex-col text-white'>
                     <span className={`${color} font-bold`}>Email</span>
                     <b>md.sharufali@987gmail.com</b>
-                    <b>ansh38974@gmail.com</b>
+                    <b>-------------------------</b>
                 </span>
             </div>
 
