@@ -5,7 +5,7 @@ import axios from 'axios' ;
 const Admin=()=>{
    const navigate = useNavigate();
     const voters=()=>{
-      axios(`${process.env.URI}/api/voters_list`).then((res)=>{
+      axios(`https://online-voting-system-backend-ds6j.onrender.com/api/voters_list`).then((res)=>{
 
         console.log(res)
         const voter_list =res.data;

@@ -32,7 +32,7 @@ const Login = ({props}) => {
         if (props == "User") {
            
             axios
-                .post(`${process.env.URI}/api/v1/voters/login`, {
+                .post(`https://online-voting-system-backend-ds6j.onrender.com/api/v1/voters/login`, {
                     password: user.password,
                     email: user.email
                 })
