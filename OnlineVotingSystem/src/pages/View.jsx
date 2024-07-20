@@ -1,83 +1,82 @@
-import React from 'react'
+import React from "react";
+import { RxCross2 } from "react-icons/rx";
+import { useLocation } from "react-router-dom";
 
-export default function View({props}) {
+export default function View({ props }) {
+  const loc = useLocation();
+  const voters_list = {list:loc.state.list};
 
-  const voters_list = [
-    {
-     name:"mohammad",
-     id:1,
-     url:"../public/R.jpeg",
-     flag:""
-    },
-    {
-     name:"ali",
-     id:2,
-      url:"../public/R.jpeg"
-    },
-    {
-      name:"mohammad",
-      id:1,
-      url:"../public/R.jpeg"
-     },
-     {
-      name:"ali",
-      id:2,
-       url:"../public/R.jpeg"
-     }, {
-      name:"mohammad",
-      id:1,
-      url:"../public/R.jpeg"
-     },
-     {
-      name:"ali",
-      id:2,
-       url:"../public/R.jpeg"
-     }, {
-      name:"mohammad",
-      id:1,
-      url:"../public/R.jpeg"
-     },
-     {
-      name:"ali",
-      id:2,
-       url:"../public/R.jpeg"
-     }
-    
-
-  ]
   
   return (
-    <div  className=" 
-    flex flex-col 
-    pt-10 h-screen 
-    w-[1150px] border-2 
+    <div
+      className=" 
+    flex flex-col
+    gap-2 
+    pt-20 
+    pl-20
+    h-screen
+    w-full  
+    border-2 
+  
     border-red-400 
-    ml-80 gap-4">
-      <p>{props}</p>
-      
-      {
-
-        voters_list.map((voters)=>{
-          return(
-
-            <ul className='flex scroll-m-6 justify-between  items-center p-2 border-2 border-red-700'>
-              <li className=' h-16 w-16'><img src={`${voters.url}`} alt="comming" /></li>
-              <li>{voters.name}</li>
-              <li>{voters.id}</li>
+    overflow-x-hidden
+     "
+    >
+      <ul
+        className="
+        grid
+        grid-cols-6
+        w-screen
+        pl-4
+        p-2
+        bg-green-900
+        border-rounded
+        text-white
+        fixed
+        justify-items-start
+        place-items-center
+        "
+      >
+        <li>Profile</li>
+        <li>Name</li>
+        <li>Age</li>
+        <li>Gender</li>
+        <li>Aadhar</li>
+        <li>Delete</li>
+      </ul>
+      <div className="flex flex-col mt-12 gap-4 scroll-my-2">
+        {
+       voters_list.list.map((data)=>{
+          return (<ul
+            className="
+            grid
+            grid-cols-6
+            w-full
+            pl-4
+            p-2
+            bg-stone-300
+            justify-items-between
+            items-center
+            border-rounder
+            
+            ">
+              <img className="h-16" src={`${data.url}`} alt="comming" />
+              <li>{`${data.firstName} ${data.midName} ${data.lastName}`}</li>
+              <li>{data.dob}</li>
+              <li className="flex justify-center  relative right-12 ">Male</li>
+              <li className="flex justify-center relative right-8 ">{data.aadharNumber}</li>
+              <li
+                className="flex justify-center  relative right-6 "
+              >
+                <RxCross2 />
+              </li>
             </ul>
-          )
-           
-          
-
-        })
+          );
         
-         
+       })
         
-}
-      
-      
-    
-    
+        }
+      </div>
     </div>
-  )
+  );
 }

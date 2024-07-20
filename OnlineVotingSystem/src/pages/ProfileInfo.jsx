@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CiEdit } from "react-icons/ci";
-import { NavLink } from 'react-router-dom';
-//import NavBar from '../components/Nav/NavBar';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
 const ProfileInfo = () => {
+    var location = useLocation();
+    var info = location.state.data;
     return (
         <>
             <div className='flex justify-center items-center w-screen h-[38.8rem] gap-[12rem] bg-black relative top-20 ' >
@@ -20,7 +23,9 @@ const ProfileInfo = () => {
                 <div className='flex flex-col gap-[2rem] h-[30rem] w-[30rem]  p-[1rem]'>
                     <div className='flex flex-col '>
                         <span className='text-[.8rem] text-blue-900 font-bold '>Name</span>
-                        <span className='text-white'>John</span>
+                        <span 
+                        className='text-white'>
+                            {`${info.firstName} ${info.midName} ${info.lastName}`}</span>
                     </div>
                     <div className='flex flex-col'>
                         <span className='text-[.8rem] text-blue-900  font-bold'>Father/Mother Name</span>
@@ -29,24 +34,24 @@ const ProfileInfo = () => {
                     <div className='flex justify-between '>
                         <div className='flex flex-col'>
                             <span className='text-[.8rem] text-blue-900 font-bold '>Age</span>
-                            <span className='text-white'>21</span>
+                            <span className='text-white'>{`${location.state.data.dob}`}</span>
                         </div>
                         <div className='flex flex-col'>
                             <span className='text-[.8rem] text-blue-900 font-bold'>Mobile Number</span>
-                            <span className='text-white'>980887977</span>
+                            <span className='text-white'>{`${location.state.data.mobileNumber}`}</span>
                         </div>
                     </div>
                     <div className='flex flex-col'>
                         <span className='text-[.8rem] text-blue-900  font-bold'>Email</span>
-                        <span className='text-white'>12@gmail.com</span>
+                        <span className='text-white'>{`${location.state.data.email}`}</span>
                     </div>
                     <div className='flex flex-col'>
                         <span className='text-[.8rem] text-blue-900 font-bold '>Aadhar Number</span>
-                        <span className='text-white'>93899893298</span>
+                        <span className='text-white'>{`${location.state.data.aadharNumber}`}</span>
                     </div>
                     <div className='flex flex-col'>
                         <span className='text-[.8rem] text-blue-900  font-bold'>Address</span>
-                        <span className='text-white'>Noida</span>
+                        <span className='text-white'>{`${location.state.data.address}`}</span>
                     </div>
                     <div className='flex justify-between'>
                         <div className='flex flex-col'>

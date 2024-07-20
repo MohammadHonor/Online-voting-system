@@ -2,10 +2,14 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
-const Login = ({ props }) => {
-   
+import dotenv from 'dotenv';
+
+
+
+ 
+const Login = ({props}) => {
     const navigate = useNavigate();
     const emailUseRef=useRef('');
     const passUseRef = useRef('');
@@ -26,19 +30,25 @@ const Login = ({ props }) => {
         e.preventDefault();
         
         if (props == "User") {
+           
             axios
-                .post("https://online-voting-system-backend-ds6j.onrender.com/api/v1/voters/login", {
+                .post(`${process.env.URI}/api/v1/voters/login`, {
                     password: user.password,
                     email: user.email
                 })
                 .then((req,res) => {
-                    console.log(req);
-                    
+                
+                    var info = req.data;
+                   
                     if (req.data) {
                         toast.success("You are successfully login", {
                             position: 'top-center',
                         })
-                        navigate("/ProfileInfo")
+                      
+                        navigate("/ProfileInfo",{
+                            state:{data:info}
+                        });
+                        
                     }
 
                 })
@@ -46,7 +56,7 @@ const Login = ({ props }) => {
         }
         else if (props == 'Admin') {
             axios
-                .post("https://online-voting-system-backend-ds6j.onrender.com/api/admin/login", {
+                .post(`${process.env.URI}/api/admin/login`, {
                     password: user.password,
                     email: user.email,
                 })
@@ -54,14 +64,15 @@ const Login = ({ props }) => {
                     console.log(res)
                 if (res.data) {
                         toast.success("Successfully login");
-                        navigate("/adminPannel");
-                       
+                       navigate("/adminPannel");
                     }
 
                 })
                 .catch(err => { console.log(err) })
 
         }
+
+       
     }
 
     return (
@@ -150,7 +161,7 @@ const Login = ({ props }) => {
                     className="shadow-lg
                    shadow-cyan-500/50 
                     bg-blue-700 w-40 P-1 pl-4 pr-4
-                     text-white text-center"
+                     text-white "
                 >LOGIN
                 </button>
             </form>
@@ -161,4 +172,4 @@ const Login = ({ props }) => {
     )
 }
 
-export default Login;
+export  {Login};

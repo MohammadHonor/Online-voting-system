@@ -3,18 +3,17 @@ import Header from "../components/Header/Header"
 import AboutProject from "../pages/AboutProject"
 import Admin from "../pages/Admin"
 import Contact from "../pages/Contact"
-import Login from "../pages/Login"
-import Registration from "../pages/Registration"
+import {Login} from "../pages/Login"
 import VotersForm from "../pages/VotersForm"
 import CandidatesForm from "../pages/CandidatesForm"
 import View from "../pages/View"
-// import VottingPannel from "../pages/VottingPannel"
 import VotingPannel from "../pages/VottingPannel"
 import Result from "../pages/Result"
 import AdminRegisteration from "../pages/AdminRegisteration"
 import { ForgetPassword } from "../pages/ForgetPassword"
 import ProfileInfo from "../pages/ProfileInfo"
 import Election from "../pages/Election"
+
 
 
 const Routers = () => {
@@ -35,6 +34,7 @@ const Routers = () => {
         <Route path="/admin/register" element={<AdminRegisteration/>}/>
         <Route path="/forgetPassword" element={<ForgetPassword/>}/>
         <Route path="/ProfileInfo" element={<ProfileInfo/>}/>
+            
         <Route path="/Election"   element={<Election/>}/>
         
     </Routes>

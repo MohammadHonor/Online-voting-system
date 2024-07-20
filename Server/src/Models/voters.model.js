@@ -4,24 +4,15 @@ import jwt from "json-web-token"
 import bcrypt from"bcrypt";
 
 const votersSchema=new Schema({
-    voter_id:{
-        type:String,
-        required:true,
-        unique:true,
-    },
+    
     aadharNumber:{
         type:String,
         required:true,
         unique:true
     },
-    login_id:{
-        type:String,
-        required:true,
-        // unique:true
-    },
+    
     firstName:{
         type:String,
-        
     },
     midName:{
         type:String,
@@ -51,9 +42,9 @@ const votersSchema=new Schema({
         min:10,
         unique:true
     },
-    // image:{
-    //     type:String, //Cloudnary
-    // },
+    image:{
+        type:String, //Cloudnary
+    },
     address:{
         type:String
     }
@@ -74,8 +65,4 @@ votersSchema.methods.isPasswordCorrect = async function(password){
 
 }
 
-// votersSchema.methods.generateAccessToken=jwt.sign({
-// //    _id: _id,
-
-// })
 export const Voters=mongoose.model("Voters",votersSchema)

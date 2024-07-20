@@ -132,7 +132,7 @@ export default function Registration() {
         e.preventDefault();
         console.log("handler running")
         axios
-        .post('https://online-voting-system-backend-ds6j.onrender.com/api/v1/voters/register',{
+        .post('http://localhost:8080/api/v1/voters/register',{
             name:votersDetails.name,
             dob:votersDetails.dob,
             fmName:votersDetails.fmName,

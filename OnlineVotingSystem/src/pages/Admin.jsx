@@ -1,13 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from 'axios' ;
 
 
 const Admin=()=>{
-   
+   const navigate = useNavigate();
     const voters=()=>{
-      axios('http://localhost:8080/api/voters_list').then((res)=>{
+      axios(`${process.env.URI}/api/voters_list`).then((res)=>{
 
         console.log(res)
+        const voter_list =res.data;
+        navigate("/VotersView" ,{
+            state:{list:voter_list}
+        })
+        
     })
 }
     return(<div className="text-white bg-lime-800 w-screen h-screen p-10 pl-32">
@@ -15,7 +20,7 @@ const Admin=()=>{
         <div action="" className="flex flex-col gap-4 relative top-40 "> 
          <NavLink to="/voters/register" className="bg-blue-800 rounded  p-3 pl-4 ">Create Voters</NavLink>
          <NavLink to="/candidates" className="bg-blue-800 rounded  p-3 pl-4">Create Candidates</NavLink>
-        <NavLink to="/VotersView" className="bg-blue-800 rounded  p-3" onClick={voters}>Edit Voters/view</NavLink>
+        <button className="bg-blue-800 rounded flex justify-start items-center  p-3" onClick={voters}>Edit Voters/view</button>
         <NavLink to="/candidatesView" className="bg-blue-800 rounded  p-3  pl-4">Edit Canditate/view</NavLink>
         <NavLink to="/election_result" className="bg-blue-800 rounded  p-3 pl-4">Election Result</NavLink>
         </div>

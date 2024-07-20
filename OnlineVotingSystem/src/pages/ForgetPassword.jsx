@@ -28,7 +28,7 @@ export const ForgetPassword = () => {
     e.preventDefault();
     console.log(input.password+" "+input.repassword)
     if(input.password == input.repassword){
-    axios.post("https://online-voting-system-backend-ds6j.onrender.com/api/admin/forgetPassword",{
+    axios.post(`${process.env.URI}/api/admin/forgetPassword`,{
       email:input.email,
       password:input.password
     }).then((req,res)=>{
