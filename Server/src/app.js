@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
+    origin:[process.env.CORS_ORIGIN],
     credentials:true
 }))
 
@@ -18,23 +18,22 @@ app.use(cookieParser());
 //routes
 
 import votersRouter from "./routes/voters.route.js";
-
-// routes declaration
-
-app.use("/api/v1/voters",votersRouter)
-
 import adminRouter from "./routes/admin.route.js";
+import { candidateRouter } from "./routes/candidate.route.js";
+import voter_list_router from "./routes/voters_list.js";
+import electionRouter from "./routes/election.route.js";
+
+
+
+app.use("/voters",votersRouter)
+
 app.use("/api/admin",adminRouter)
 
-// app.use("/admin",adminRouter);
-
-//app.use("/admin",adminRouter)
-
-import { candidateRoute } from "./routes/candidate.route.js";
-
-app.use("/api/candidate",candidateRoute);
-
-import voter_list_router from "./routes/voters_list.js";
+app.use("/api/candidate",candidateRouter);
 
 app.use('/api',voter_list_router);
+
+app.use("/elections",electionRouter);
+app.use("/api/elections",electionRouter)
+
 export{app};

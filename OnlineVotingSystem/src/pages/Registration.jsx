@@ -132,7 +132,7 @@ export default function Registration() {
         e.preventDefault();
         console.log("handler running")
         axios
-        .post('http://localhost:8080/api/v1/voters/register',{
+        .post(`${process.env.URL}/api/v1/voters/register`,{
             name:votersDetails.name,
             dob:votersDetails.dob,
             fmName:votersDetails.fmName,

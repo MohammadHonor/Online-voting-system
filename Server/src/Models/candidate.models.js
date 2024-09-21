@@ -3,55 +3,48 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const candidateSchema=new Schema({
-    candidateId:{
+    name:{
         type:String,
+    //    required:true,
+        unique:true
+    },
+    prof_photo:{
+        type:String, 
+       // required:true
     },
     partyName:{
         type:String,
-        required:true,
+    //    required:true,
+        unique:true
     },
-    name:{
+    party_flag:{
         type:String,
-        required:true,
-    },
+      },
     gender:{
         type:String,
-        // required:true
+    //    required:true
     },
     dob:{
         type:String,
-        // required:true,
+    //    required:true
     },
-    
-    // constituency:{
-    //     type:String,
-    //     required:true
-    // },
-    image:{
-        type:String, //cloudinary
-        
+    state:{
+        type:String
     },
-    email:{
-        type: String
+    constituency:{
+        type:String,
+    //    required:true
     },
     mobileNumber:{
         type:String
     }
-    
-})
+},
+{
+    timestamps:true
+}
+)
 
 export const Candidates=mongoose.model('Candidates',candidateSchema);
 
 
 
-
-
-
-// candidateId: '',
-// partyName: '',
-// name: '',
-// dob: '',
-// image: '',
-// gender: '',
-// email: '',
-// mobileNumber: ''

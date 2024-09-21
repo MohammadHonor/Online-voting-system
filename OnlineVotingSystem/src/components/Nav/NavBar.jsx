@@ -1,7 +1,28 @@
-import { NavLink } from 'react-router-dom';
+import { json, NavLink, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { IoReorderThreeOutline } from "react-icons/io5";
+import axios from 'axios';
 const NavBar = () => {
+
+  const navigate = useNavigate();
+
+  const check=()=>{
+    
+    const info=JSON.parse(localStorage.getItem("user"));
+    navigate("/ProfileInfo",{
+      state:{data:info}
+    })
+  }
+  const electionDetail=()=>{
+    axios.post(`${import.meta.env.VITE_URL}/api/elections/info`).then((res)=>{
+        navigate("/Election",{
+          state:{data:res.data}
+        })
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+}
 
 
   return (<div className=" 
@@ -15,16 +36,16 @@ const NavBar = () => {
     ">
       <ul className=' flex gap-16 w-screen h-20 justify-end items-center pr-40 text-white '>
             <li>
-                <NavLink to="/ProfileInfo">Personal Info</NavLink>
+                <button  onClick={check}>Personal Info</button>
             </li>
             <li>
-                <NavLink to="/Election">Elections</NavLink>
+                <button onClick={electionDetail}  >Election</button>
             </li>
             <li>
-                <NavLink to='/Contact'>Contact</NavLink>
+                <NavLink to='/Contact' >Contact</NavLink>
             </li>
             <li>
-                <NavLink to="/votingPannel">Vote</NavLink>
+                <NavLink to="/votingPannel" >Vote</NavLink>
             </li>
         </ul>
     </div>

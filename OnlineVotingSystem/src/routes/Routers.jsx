@@ -13,9 +13,7 @@ import AdminRegisteration from "../pages/AdminRegisteration"
 import { ForgetPassword } from "../pages/ForgetPassword"
 import ProfileInfo from "../pages/ProfileInfo"
 import Election from "../pages/Election"
-
-
-
+import ElectionRegistration from "../pages/ElectionRegistration"
 const Routers = () => {
     return (< Routes>
         <Route path='/' element={<Header />} />
@@ -27,15 +25,15 @@ const Routers = () => {
         <Route path='/Features' element={<AboutProject item="Featues" color="white" text="text-black" border="border-blue-700" />} />
         <Route path='/voters/register' element={<VotersForm/>}/>
         <Route path="/candidates" element={<CandidatesForm/>}/>
-        <Route path="/votersView" element={<View props="Total Voters"/>}/>
-        <Route path="/candidatesView" element={<View props="Total Candidates"/>}/>
+        <Route path="/votersView" element={<View props="Voters"/>}/>
+        <Route path="/candidatesView" element={<View props="Candidates"/>}/>
         <Route path="/election_result" element={<Result/>}/>
         <Route path="/votingPannel" element={<VotingPannel/>}/>
         <Route path="/admin/register" element={<AdminRegisteration/>}/>
         <Route path="/forgetPassword" element={<ForgetPassword/>}/>
         <Route path="/ProfileInfo" element={<ProfileInfo/>}/>
-            
         <Route path="/Election"   element={<Election/>}/>
+        <Route path='/Election_register' element={<ElectionRegistration/>}/>
         
     </Routes>
 

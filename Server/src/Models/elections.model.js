@@ -1,12 +1,28 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 import { Schema } from "mongoose";
-
 const electionSchema = new Schema({
-    name: String, // Name of the election
-    date: Date, // Date of the election
-    candidates: [{ name: String, party: String }], // Array of candidate objects
-    votes: [{ candidateId: Schema.Types.ObjectId, count: Number }], // Array of vote objects
-    // Other relevant fields can be added here
+    electionName:{
+      type:String,
+      required:true,
+      unique:false
+    },
+    date:{
+      type:Date,
+      required:true,
+      unique:true,
+    }, 
+    constituency:{
+      type:String,
+      required:true,
+      unique:true
+    },
+    Candidate:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"Candidates"
+    }]
   });
 
-export const elections=mongoose.model("elections",electionSchema)
+
+ export const elections = mongoose.model("elections",electionSchema);
+ 
+ 

@@ -4,8 +4,9 @@ import Scrollbars from 'react-custom-scrollbars-2'
 import Routers from './routes/Routers'
 import NavBar from './components/Nav/NavBar'
 
+
 function App() {
-  return (<>
+    return (<>
   <NavBar/>
   <SideBar />
     <div className=" h-screen ">

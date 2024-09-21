@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { registerVoters,loginVoters } from "../controllers/voters.controller.js";
+import { registerVoters,loginVoters, forgetPassword } from "../controllers/voters.controller.js";
+import {upload} from "../middlewares/multer.js"
 
+const votersRouter=Router()
 
+votersRouter.route("/register").post(upload.fields([{
+  name:"image",
+  count:1
+}]),registerVoters)
+votersRouter.route("/login").post(loginVoters)
+votersRouter.route("/forget").post(forgetPassword)
 
-const router=Router()
-
-router.route("/register").post(registerVoters)
-router.route("/login").post(loginVoters)
-
-
-
-
-export default router;
+export default votersRouter;

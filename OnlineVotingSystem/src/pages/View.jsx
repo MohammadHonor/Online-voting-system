@@ -3,10 +3,10 @@ import { RxCross2 } from "react-icons/rx";
 import { useLocation } from "react-router-dom";
 
 export default function View({ props }) {
+  console.log(props);
   const loc = useLocation();
-  const voters_list = {list:loc.state.list};
-
-  
+  const list = {list:loc.state.list};
+  console.log(list)
   return (
     <div
       className=" 
@@ -46,7 +46,7 @@ export default function View({ props }) {
       </ul>
       <div className="flex flex-col mt-12 gap-4 scroll-my-2">
         {
-       voters_list.list.map((data)=>{
+       list.list.map((data)=>{
           return (<ul
             className="
             grid
@@ -60,7 +60,7 @@ export default function View({ props }) {
             border-rounder
             
             ">
-              <img className="h-16" src={`${data.url}`} alt="comming" />
+              <img className="h-16" src={`${data.image}`} alt="comming" />
               <li>{`${data.firstName} ${data.midName} ${data.lastName}`}</li>
               <li>{data.dob}</li>
               <li className="flex justify-center  relative right-12 ">Male</li>
@@ -68,7 +68,7 @@ export default function View({ props }) {
               <li
                 className="flex justify-center  relative right-6 "
               >
-                <RxCross2 />
+                <RxCross2 className="text-2xl"/>
               </li>
             </ul>
           );
