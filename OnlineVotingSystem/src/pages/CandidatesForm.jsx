@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,17 +32,17 @@ const CandidatesForm = () => {
       return { ...prev, [name]: value };
     });
   };
- const fileHandler=(e)=>{
-  const name = e.target.name;
-  const value =e.target.files[0];
-  setSelectedFile((prev)=>{
-    return {...prev,[name]:value}
-  })
- }
+  const fileHandler = (e) => {
+    const name = e.target.name;
+    const value = e.target.files[0];
+    setSelectedFile((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
 
   const submitCandidate = async (err) => {
     err.preventDefault();
-console.log(selectedFile);
+    console.log(selectedFile);
 
     const formData = new FormData();
 
@@ -58,10 +58,11 @@ console.log(selectedFile);
     formData.append("party_flag", selectedFile.party_flag);
 
     axios
-      .post(`${import.meta.env.VITE_URL}/api/candidate/register`, formData,
-        {headers: {
-        "Content-Type": "multipart/form-data",
-      }})
+      .post(`${import.meta.env.VITE_URL}/api/candidate/register`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
         console.log(res);
         toast.success("added successfully", {
@@ -72,7 +73,6 @@ console.log(selectedFile);
   };
   return (
     <form
-      
       onSubmit={submitCandidate}
       className=" 
                     flex flex-col 
@@ -173,43 +173,75 @@ console.log(selectedFile);
             onChange={inputEvent}
           >
             <option value="">select constituency</option>
-            {constituency.up.map((value) => {
+            {constituency.up.map((value, index) => {
               if (candidate.state == "Uttar Pradesh")
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
             })}
-            {constituency.AndhraPradesh.map((value) => {
+            {constituency.AndhraPradesh.map((value, index) => {
               if (candidate.state == "Andhra Pradesh") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
-            {constituency.Uttarakhand.map((value) => {
+            {constituency.Uttarakhand.map((value, index) => {
               if (candidate.state == "Uttarakhand") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
-            {constituency.westBengal.map((value) => {
+            {constituency.westBengal.map((value, index) => {
               if (candidate.state == "West Bengal") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
-            {constituency.ArunachalPradesh.map((value) => {
+            {constituency.ArunachalPradesh.map((value, index) => {
               if (candidate.state == "Arunachal Pradesh") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
-            {constituency.Assam.map((value) => {
+            {constituency.Assam.map((value, index) => {
               if (candidate.state == "Assam") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
-            {constituency.Goa.map((value) => {
+            {constituency.Goa.map((value, index) => {
               if (candidate.state == "Goa") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
-            {constituency.Gujarat.map((value) => {
+            {constituency.Gujarat.map((value, index) => {
               if (candidate.state == "Gujarat") {
-                return <option value={value}>{value}</option>;
+                return (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                );
               }
             })}
           </select>

@@ -12,17 +12,15 @@ const Admin = () => {
       });
     });
   };
-  const candidates=()=>{
-    axios(`${import.meta.env.VITE_URL}/api/candidate_list`).then((res)=>{
-
-      console.log(res)
-      const candidate_list =res.data;
-      navigate("/candidatesView" ,{
-          state:{list:candidate_list}
-      })
-      
-  })
-}
+  const candidates = () => {
+    axios(`${import.meta.env.VITE_URL}/api/candidate_list`).then((res) => {
+      console.log(res);
+      const candidate_list = res.data;
+      navigate("/candidatesView", {
+        state: { list: candidate_list },
+      });
+    });
+  };
   return (
     <div className="text-white bg-lime-800 w-screen h-screen p-10 pl-32">
       <h1 className="relative top-20 text-4xl text-center ">
@@ -45,7 +43,7 @@ const Admin = () => {
           Edit Voters/view
         </button>
         <button
-       //   to="/candidatesView"
+          //   to="/candidatesView"
           className="bg-blue-800 rounded flex justify-start items-center  p-3"
           onClick={candidates}
         >

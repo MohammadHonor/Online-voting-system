@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,7 +29,7 @@ export default function ElectionRegistration() {
         date: election.date,
         constituency: election.constituency,
       })
-      .then((res, req) => {
+      .then((res) => {
         console.log(res);
         if (res.data == "true") {
           navigate("/adminPannel");
@@ -62,7 +62,7 @@ export default function ElectionRegistration() {
           onChange={inputEvent}
           className="outline-none pl-2 border-blue-500 border w-96 h-8"
         >
-            <option value="">Choose Election</option>
+          <option value="">Choose Election</option>
           <option value="State Election">State Election</option>
         </select>
         {/* <input

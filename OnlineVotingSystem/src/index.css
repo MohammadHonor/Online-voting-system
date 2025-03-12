@@ -1,9 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    overflow-x:hidden;
+body {
+  overflow-x: hidden;
 }
-.active{
-   border-bottom:2px solid green;
+.active {
+  border-bottom: 2px solid green;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  } */

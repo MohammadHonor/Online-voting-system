@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function VotingPannel() {
   const [radioBox, setRadioBox] = useState({
@@ -66,7 +66,9 @@ export default function VotingPannel() {
     
      `}
     >
-      <h2 className="text-white font-bold text-2xl mr-[26rem]">Voting Pannel</h2>
+      <h2 className="text-white font-bold text-2xl mr-[26rem]">
+        Voting Pannel
+      </h2>
       {info.map((v) => {
         return (
           <>
@@ -88,7 +90,6 @@ export default function VotingPannel() {
               p-2
               border-blue-700
               border-2"
-              
               >
                 <input
                   type="radio"
@@ -137,10 +138,17 @@ export default function VotingPannel() {
         );
       })}
       <div className=" pl-8 p-2 gap-4 flex mr-32 items-center ">
-      <input type="checkbox" name="" id=""  className="h-6 w-6"/>
-      <span className="text-white">I have selected name from party as my candidate</span>
+        <input type="checkbox" name="" id="" className="h-6 w-6" />
+        <span className="text-white">
+          I have selected name from party as my candidate
+        </span>
       </div>
-      <button type="submit" className="bg-blue-800 text-stone-100 p-1 pl-8 pr-8">SUBMIT</button>
+      <button
+        type="submit"
+        className="bg-blue-800 text-stone-100 p-1 pl-8 pr-8"
+      >
+        SUBMIT
+      </button>
     </form>
   );
 }

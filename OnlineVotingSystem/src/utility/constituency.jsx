@@ -177,7 +177,6 @@ const AndhraPradesh = [
 
 const ArunachalPradesh = ["Arunachal West", "Arunachal East"];
 
-
 const Assam = [
   "Kokrajhar",
   "Dhubri",
@@ -195,48 +194,44 @@ const Assam = [
   "Jorhat",
 ];
 
-const Goa = [
-    "North Goa",	
-    "South Goa"
-]
+const Goa = ["North Goa", "South Goa"];
 
-
-    const Gujarat=[
-    "Kachchh"	,
-    "Banaskantha",
-    "Patan",
-    "Mahesana",
-    "Sabarkantha",
-    "Gandhinagar",
-    "Ahmedabad East",
-    "Ahmedabad West",
-    "Surendranagar",
-    "Rajkot",
-    "Porbandar",
-    "Jamnagar",
-    "Junagadh",
-    "Amreli",
-    "Bhavnagar",
-    "Anand",
-    "Kheda",
-    "Panchmahal",
-    "Dahod"	,
-    "Vadodara",
-    "Chhota Udaipur"	,
-    "Bharuch",
-    "Bardoli"	,
-    "Surat",
-    "Navsari",
-    "Valsad"
-    ]
-    const constituency = {
-        up,
-        Uttarakhand,
-        AndhraPradesh,
-        westBengal,
-        ArunachalPradesh,
-        Assam,
-        Goa,
-        Gujarat
-      };
+const Gujarat = [
+  "Kachchh",
+  "Banaskantha",
+  "Patan",
+  "Mahesana",
+  "Sabarkantha",
+  "Gandhinagar",
+  "Ahmedabad East",
+  "Ahmedabad West",
+  "Surendranagar",
+  "Rajkot",
+  "Porbandar",
+  "Jamnagar",
+  "Junagadh",
+  "Amreli",
+  "Bhavnagar",
+  "Anand",
+  "Kheda",
+  "Panchmahal",
+  "Dahod",
+  "Vadodara",
+  "Chhota Udaipur",
+  "Bharuch",
+  "Bardoli",
+  "Surat",
+  "Navsari",
+  "Valsad",
+];
+const constituency = {
+  up,
+  Uttarakhand,
+  AndhraPradesh,
+  westBengal,
+  ArunachalPradesh,
+  Assam,
+  Goa,
+  Gujarat,
+};
 export default constituency;
