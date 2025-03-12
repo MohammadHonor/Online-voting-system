@@ -68,6 +68,7 @@ const registerVoters = async (req, res) => {
 
 const loginVoters = async (req, res) => {
   const { password, email } = req.body;
+  // console.log("ali")
 
   if (!password || !email) {
     res.status(400).json({ error: "password and email are required" });
