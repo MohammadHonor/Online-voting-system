@@ -10,7 +10,11 @@ const electionSchema = new Schema({
       type:Date,
       required:true,
       unique:true,
-    }, 
+    },
+    state:{
+      type:String,
+      required:true,
+    },
     constituency:{
       type:String,
       required:true,

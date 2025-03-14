@@ -7,21 +7,7 @@ import uploadOnCloudinary from "../utils/Cloudinary.js";
 import { generateAccessAndRefreshToken } from "../utils/TokenGenerator.js";
 
 const registerVoters = async (req, res) => {
-  const {
-    aadharNumber,
-    firstName,
-    midName,
-    lastName,
-    dob,
-    password,
-    gender,
-    address,
-    email,
-    fmName,
-    constituency,
-    state,
-    mobileNumber
-  } = req.body;
+  const {aadharNumber,firstName,midName,lastName,dob,password,gender,address,email,fmName,constituency,state,mobileNumber} = req.body;
 
   const localPath = req.files.image[0].path;
 
@@ -43,9 +29,9 @@ const registerVoters = async (req, res) => {
     email: email,
     image: imagePath,
     fmName: fmName,
-    constituency:constituency,
-    state:state,
-    mobileNumber:mobileNumber
+    constituency: constituency,
+    state: state,
+    mobileNumber: mobileNumber
   });
   //  await admins.findOneAndUpdate({
   //   "name":`${process.env.Admin}`

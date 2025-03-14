@@ -21,6 +21,7 @@ import adminRouter from "./routes/admin.route.js";
 import { candidateRouter } from "./routes/candidate.route.js";
 import voter_list_router from "./routes/voters_list.js";
 import electionRouter from "./routes/election.route.js";
+import votesRouter from "./routes/vote.route.js";
 
 
 
@@ -34,5 +35,7 @@ app.use('/api',voter_list_router);
 
 app.use("/elections",electionRouter);
 app.use("/api/elections",electionRouter)
+
+app.use("/api/voters", votesRouter)
 
 export{app};
