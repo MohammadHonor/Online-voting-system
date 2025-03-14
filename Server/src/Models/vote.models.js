@@ -1,23 +1,18 @@
 import { Schema } from "mongoose";
 import mongoose from "mongoose";
-import { Voters } from "./voters.model";
-import { elections } from "./elections.model";
 
 const voteSchema=new Schema({
-     voter:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'Voters',
+     voterId:{
+      type:String,
       required:true
-     }],
-     candidate:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'Candidates',
+     },
+     candidateId:{
+      type:String,
       required:true
-     }],
-     election:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'elections',
+     },
+     electionName:{
+      type:String,
       required:true
-     }]
+     }
 })
-export const Vote=mongoose.model("Vote",voteSchema);
+export const VoteModel=mongoose.model("Vote",voteSchema);
