@@ -33,19 +33,22 @@ const votersSchema=new Schema({
         unique:true
     },
     fmName:{
-   type:String,
+    type:String,
     required:true
     },
     email:{
         type:String,
-        require:true,
         unique:true
     },
     constituency:{
         type:String,
+        unique:true,
+        required:true
     },
     state:{
-        type:String
+        type:String,
+        unique:true,
+        required:true
     },
     image:{
         type:String, 

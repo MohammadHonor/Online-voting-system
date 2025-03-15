@@ -1,20 +1,14 @@
 import { Router } from "express";
+import { createNewCandidate } from "../controllers/candidates.controller.js";
+import { upload } from "../middlewares/multer.js"
 
-import { candidateRegister } from "../controllers/candidates.controller.js";
-import {upload} from "../middlewares/multer.js"
+const newCandidateRoutner = Router();
 
-const candidateRouter=Router();
-candidateRouter.route("/register").post(upload.fields(
+newCandidateRoutner.route("/register").post(upload.fields(
   [
-    {
-      name: "prof_photo",
-      maxCount:1
-    }
-  ]),upload.fields(
-    [
-      {
-    name:"party_flag",
-    maxCount:1
-  }
-]),candidateRegister);
-export {candidateRouter}
+    { name: "prof_photo", maxCount: 1 },
+    { name: "party_flag", maxCount: 1 }
+  ]),
+  createNewCandidate
+);
+export { newCandidateRoutner }
