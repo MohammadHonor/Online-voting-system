@@ -14,7 +14,7 @@ const registerVoters = async (req, res) => {
   if (!localPath) {
     res.status(402).json("file path error");
   }
-
+  
   const imagePath = await uploadOnCloudinary(localPath);
 
   const voter = await Voters.create({

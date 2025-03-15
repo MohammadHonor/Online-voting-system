@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 import votersRouter from "./routes/voters.route.js";
 import adminRouter from "./routes/admin.route.js";
-import { candidateRouter } from "./routes/candidate.route.js";
+import { newCandidateRoutner } from "./routes/candidate.route.js";
 import voter_list_router from "./routes/voters_list.js";
 import electionRouter from "./routes/election.route.js";
 import votesRouter from "./routes/vote.route.js";
@@ -29,7 +29,7 @@ app.use("/voters",votersRouter)
 
 app.use("/api/admin",adminRouter)
 
-app.use("/api/candidate",candidateRouter);
+app.use("/api/candidate",newCandidateRoutner);
 
 app.use('/api',voter_list_router);
 
