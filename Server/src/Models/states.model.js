@@ -2,7 +2,10 @@ import mongoose, { Schema } from "mongoose";
 
 const stateSchema = new Schema({
     stateName: { type: String, required: true, unique: true },
-    constituency: []
+    constituency: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"ConstituencyModel"
+    }]
 },
     { timestamps: true }
 );

@@ -4,11 +4,9 @@ const electionSchema = new Schema({
   electionName: { type: String, required: true, unique: false },
   startDate: { type: Date, required: true, unique: true, },
   endDate: { type: Date, required: true, unique: true, },
-  state: { type: String, required: true, },
-  constituency: { type: String, required: true, unique: true },
-  Candidate: [{
+  state: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Candidates"
+    ref: "stateModel"
   }],
   status: { type: String, required: true }
 },

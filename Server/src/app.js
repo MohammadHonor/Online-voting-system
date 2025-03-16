@@ -22,6 +22,8 @@ import { newCandidateRoutner } from "./routes/candidate.route.js";
 import voter_list_router from "./routes/voters_list.js";
 import electionRouter from "./routes/election.route.js";
 import votesRouter from "./routes/vote.route.js";
+import constituencyRouter from "./routes/consituency.route.js";
+
 
 
 
@@ -34,8 +36,10 @@ app.use("/api/candidate",newCandidateRoutner);
 app.use('/api',voter_list_router);
 
 app.use("/elections",electionRouter);
-app.use("/api/elections",electionRouter)
+app.use("/api/elections",electionRouter);
 
-app.use("/api/voters", votesRouter)
+app.use("/api/voters", votesRouter);
+
+app.use("/api/constituency" , constituencyRouter);
 
 export{app};

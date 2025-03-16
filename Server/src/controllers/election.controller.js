@@ -1,17 +1,20 @@
 import { elections } from "../Models/elections.model.js";
+import { Candidates } from "../Models/candidate.models.js";
 const electionRegistration = async (req, res) => {
 
-    const { electionName, date, state, constituency } = req.body;
+    const { electionName, startDate, endDate,state, constituency } = req.body;
 
-    if (!electionName || !date || !constituency || !state) {
-        res.status(401).json({ field_missing: "electionName , data or constituency not provide" });
+    if (!electionName || !startDate || !endDate || !constituency || !state) {
+        return res.status(401).json({ field_missing: "electionName , data or constituency not provide" });
     }
 
     try {
-        const registered = await elections.create({ electionName, date, state, constituency })
-        res.status(200).json("true")
+        const candidateExists = await Candidates.find({state,constituency,electionName}) 
+        if( !candidateExists )return res.status(404).json({message:"there is no any candidate"})
+        const registered = await elections.create({ electionName, startDate,endDate, state, constituency ,candidate:candidateExists})
+        return res.status(200).json({message:"Election registration successfull"});
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json({message:error.message});
     }
 }
 
